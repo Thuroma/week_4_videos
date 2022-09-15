@@ -1,0 +1,28 @@
+.tab-button {
+    background-color: lightgreen;
+    border: none;
+    padding: 10px;
+    margin: 1px;
+    outline: none;
+}
+
+.tab-button:hover {
+    background-color: rgb(209, 253, 158);
+}
+
+.tab-button.active {
+    /*only applied to element with class tab-button and class active*/
+    background-color: rgb(119, 190, 252);
+}
+
+#tabs {
+    background-color: rgb(223, 255, 244);
+    border: 1px solid forestgreen;
+}
+
+.tab-content {
+    border-left: 1px solid forestgreen;
+    border-left: 1px solid forestgreen;
+    border-bottom: 1px solid forestgreen;
+    padding: 10px;
+}

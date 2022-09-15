@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Generate user list</title>
+</head>
+
+<body>
+
+    <!--HTML HERE-->
+    <p>Enter some text to add to the list</p>
+    <input id="new-text"></input>
+    <button id="add-text">Add</button>
+    
+    <ul id="list-of-text"></ul>
+    
+    <button id="clear">Clear List</button>
+
+<script>
+
+    //Script here
+    let textInput = document.querySelector('#new-text')
+    let addButton = document.querySelector('#add-text')
+    let textList = document.querySelector('#list-of-text')
+    let clearButton = document.querySelector('#clear')
+
+    let elementsInList = 0  // track number of li items
+    let maxElements = 10    // set max number of li items
+
+    document.addEventListener('keyup', function() {
+        if (event.keyCode == 13) {
+            addButton.click()
+        }
+    })
+
+    addButton.addEventListener('click', function() {
+        // read the input text
+        let newText = textInput.value
+
+        // validate that the user has entered some text
+        if (newText.length == 0) {
+            alert('Enter some text')
+            return
+        }
+        
+        // limit the number of entries
+        if (elementsInList >= maxElements) {
+            alert('No more elemenets can be added')
+            return
+        }
+
+        // create a new li element
+        let newListItem = document.createElement('li')
+
+        // the li element text should be the input text
+        newListItem.innerHTML = newText
+
+        // add new list item as a child of the unordered list
+        textList.appendChild(newListItem)
+
+        // clear the input text box
+        textInput.value = ''
+
+        elementsInList++
+    })
+
+    // clear list
+    clearButton.addEventListener('click', function() {
+        textList.innerHTML = ''
+        elementsInList = 0
+    })
+    
+
+</script>
+</body>
+</html>
